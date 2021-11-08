@@ -2,10 +2,10 @@
   <section class="text-gray-600 body-font" data-aos="fade-down">
     <div class="md:px-8 px-2 py-16 mx-auto container">
       <img
-        v-for="(img, i) of images"
+        v-for="(img, i) of images.data"
         :key="i"
-        class="img-galeri shadow-md border-4 border-white"
-        :src="'https://ancient-cliffs-36736.herokuapp.com' + img.gambar.formats.small.url"
+        class="img-galeri shadow-md md:border-4 border-1 border-white"
+        :src="img.gambar"
         :alt="img.deskripsi"
       >
     </div>
@@ -21,13 +21,11 @@ export default {
     }
   },
   async mounted () {
-    const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NDEzNjQ2LCJleHAiOjE2MzgwMDU2NDZ9.imEfxa_LndM3dJPXD6-0DdpTOcAC-DS7M3f6zlHFoBU'
-    const url = 'https://ancient-cliffs-36736.herokuapp.com/galeris?_sort=created_at:DESC'
+    const url = 'https://api.muhammadiyah-bna.org/gallery'
     await axios
       .get(url, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${process.env.SECRET_KEY}`
         }
       })
       .then((res) => {
@@ -66,9 +64,9 @@ export default {
     column-count: 2;
   }
 }
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) {
   .container {
-    column-count: 1;
+    column-count: 2;
   }
-}
+} */
 </style>

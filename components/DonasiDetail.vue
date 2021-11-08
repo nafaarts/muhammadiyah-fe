@@ -12,14 +12,16 @@
             object-cover object-center
             rounded
           "
-          src="~assets/cta-panti.jpg"
+          :src="donasi.gambar"
         >
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-          <h2 class="text-sm title-font text-gray-500 tracking-widest">
-            FOOD
+          <h2
+            class="text-md title-font uppercase text-gray-500 tracking-widest"
+          >
+            {{ kategori }}
           </h2>
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-            Bantu anak yatim untuk memenuhi kebutuhan gizinya
+            {{ donasi.judul }}
           </h1>
           <hr class="my-2">
           <div class="relative pt-1">
@@ -35,33 +37,27 @@
                     uppercase
                     rounded-md
                     text-white
-                    bg-yellow-400
                   "
+                  :class="range == 100 ? 'bg-green-400' : 'bg-yellow-400'"
                 >
                   Task in progress
                 </span>
               </div>
               <div class="text-right">
                 <span
-                  class="text-xs font-semibold inline-block text-yellow-700"
+                  class="text-xs font-semibold inline-bloc"
+                  :class="range == 100 ? 'text-green-700' : 'text-yellow-700'"
                 >
-                  30%
+                  {{ range }}%
                 </span>
               </div>
             </div>
             <div
-              class="
-                overflow-hidden
-                h-2
-                mb-4
-                text-xs
-                flex
-                rounded
-                bg-yellow-200
-              "
+              class="overflow-hidden h-2 mb-4 text-xs flex rounded"
+              :class="range == 100 ? 'bg-green-200' : 'bg-yellow-200'"
             >
               <div
-                style="width: 30%"
+                :style="`width: ${range}%`"
                 class="
                   shadow-none
                   flex flex-col
@@ -69,14 +65,14 @@
                   whitespace-nowrap
                   text-white
                   justify-center
-                  bg-yellow-700
                 "
+                :class="range == 100 ? 'bg-green-700' : 'bg-yellow-700'"
               />
             </div>
           </div>
           <h3 class="text-md">
-            <strong>Rp 2.982.500</strong> terkumpul dari
-            <strong>Rp 25.000.000</strong>
+            <strong>{{ formatCurrency(donasi.jumlah) }}</strong> terkumpul dari
+            <strong>{{ formatCurrency(donasi.target) }}</strong>
           </h3>
 
           <div class="relative my-4">
@@ -145,6 +141,7 @@
             >Jumlah Donasi</label>
             <input
               id="jumlah_donasi"
+              v-model="jumlahDonasi"
               type="number"
               name="jumlah_donasi"
               class="
@@ -168,14 +165,15 @@
             >
           </div>
           <p class="leading-relaxed mb-4">
-            Donasi kamu akan berkontribusi <strong>25%</strong> dari total
-            kebutuhan.
+            Donasi kamu akan berkontribusi
+            <strong> {{ (jumlahDonasi / donasi.target) * 100 }}%</strong> dari
+            total kebutuhan.
           </p>
           <hr class="mb-4">
           <div class="flex">
             <span
-              class="title-font font-medium text-2xl text-gray-900"
-            >Rp 27.800</span>
+              class="title-font font-medium text-2sm md:text-2xl text-gray-900"
+            >{{ formatCurrency(jumlahDonasi) }}</span>
             <button
               class="
                 flex
@@ -192,33 +190,6 @@
             >
               Donasi
             </button>
-            <button
-              class="
-                rounded-full
-                w-10
-                h-10
-                bg-gray-200
-                p-0
-                border-0
-                inline-flex
-                items-center
-                justify-center
-                text-gray-500
-                ml-4
-              "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="#383838"
-                  d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-6 17c1.513-6.587 7-7.778 7-7.778v-2.222l5 4.425-5 4.464v-2.223c0 .001-3.78-.114-7 3.334z"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -227,7 +198,44 @@
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      donasi: [],
+      range: 0,
+      kategori: null,
+      jumlahDonasi: 0
+    }
+  },
+  async mounted () {
+    // alert(this.$route.params.id)
+    const url =
+      'https://api.muhammadiyah-bna.org/donasi/' + this.$route.params.id
+    await axios
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${process.env.SECRET_KEY}`
+        }
+      })
+      .then((res) => {
+        this.donasi = res.data.data
+      })
+      .catch((err) => {
+        alert(err)
+      })
+    this.range = (this.donasi.jumlah / this.donasi.target) * 100
+    this.kategori = this.donasi.kategori.kategori
+  },
+  methods: {
+    formatCurrency (val) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+      }).format(val)
+    }
+  }
+}
 </script>
 
 <style></style>

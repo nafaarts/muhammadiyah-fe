@@ -117,7 +117,9 @@ export default {
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NDEzNjQ2LCJleHAiOjE2MzgwMDU2NDZ9.imEfxa_LndM3dJPXD6-0DdpTOcAC-DS7M3f6zlHFoBU'
     const url =
       'https://ancient-cliffs-36736.herokuapp.com/informasis?_sort=created_at:DESC'
-    if (this.limit === true) { url.concat('?_limit=3') }
+    if (this.limit === true) {
+      url.concat('?_limit=3')
+    }
     await axios
       .get(url, {
         headers: {
