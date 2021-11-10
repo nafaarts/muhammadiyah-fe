@@ -17,13 +17,17 @@ jobs:
       with:
         node-version: '14'
 
-    - name: 🔨 Build Project
+    - name: Install Dependencies
       run: |
         npm install
-        npm run build
-        npm run generate
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
+
+      name: Building
+      run:
+        npm run build
+        npm run generate
+
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
