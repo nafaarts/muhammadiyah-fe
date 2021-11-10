@@ -5,7 +5,7 @@
         v-for="(img, i) of images.data"
         :key="i"
         class="img-galeri shadow-md md:border-4 border-1 border-white"
-        :src="img.gambar"
+        :src="img.gambar.medium"
         :alt="img.deskripsi"
       >
     </div>
