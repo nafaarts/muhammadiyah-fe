@@ -18,13 +18,10 @@ jobs:
         node-version: '14'
 
     - name: Install Dependencies
-      run: |
-        npm install
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-
-      name: Building
-      run:
+      run: |
+        npm install
         npm run build
         npm run generate
 
