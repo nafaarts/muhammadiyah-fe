@@ -22,6 +22,8 @@ jobs:
         npm install
         npm run build
         npm run generate
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
