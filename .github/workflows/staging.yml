@@ -17,6 +17,9 @@ jobs:
       with:
         node-version: '14'
 
+      name: generate ENV
+      run: echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" > .env
+
     - name: Install Dependencies
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -24,7 +27,6 @@ jobs:
         npm install
         npm run build
         npm run generate
-
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
