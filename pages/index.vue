@@ -1,5 +1,5 @@
 <template>
-  <main class="md:pt-6 pt-14">
+  <main>
     <Navbar />
     <Hero />
     <About />

@@ -1,5 +1,5 @@
 <template>
-  <main class="md:pt-10 pt-18">
+  <main>
     <Navbar />
     <Galeri />
     <Footer />

@@ -1,5 +1,5 @@
 <template>
-  <main class="md:pt-6 pt-24">
+  <main>
     <Navbar />
     <News :limit="false" />
     <Footer />
