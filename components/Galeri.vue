@@ -1,23 +1,49 @@
 <template>
-  <section class="text-gray-600 body-font" data-aos="fade-down">
-    <div class="md:px-8 px-2 py-16 mx-auto container">
-      <img
-        v-for="(img, i) of images.data"
-        :key="i"
-        class="img-galeri shadow-md md:border-4 border-1 border-white"
-        :src="img.gambar.medium"
-        :alt="img.deskripsi"
-      >
+  <section class="text-gray-600 body-font">
+    <div class="md:px-8 px-2 md:py-16 py-20 mx-auto">
+      <h3 class="text-3xl text-center mb-3">
+        Galeri
+      </h3>
+      <hr class="border border-2 bg-black w-40 m-auto mb-8">
+      <div class="container">
+        <transition-group tag="div" @before-enter="beforeEnter" @enter="enter">
+          <img
+            v-for="(img, i) of images.data"
+            :key="i"
+            :data-index="i"
+            class="img-galeri shadow-md md:border-3 border-1 border-white"
+            :src="img.gambar.medium"
+            :alt="img.deskripsi"
+          >
+        </transition-group>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
+import gsap from 'gsap'
 export default {
   data () {
+    const beforeEnter = (el) => {
+      el.style.opacity = 0
+      el.style.transform = 'translateY(100px)'
+    }
+
+    const enter = (el, done) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        onComplete: done,
+        delay: el.dataset.index * 0.2
+      })
+    }
     return {
-      images: []
+      images: [],
+      enter,
+      beforeEnter
     }
   },
   async mounted () {

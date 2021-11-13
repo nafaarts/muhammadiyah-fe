@@ -79,13 +79,19 @@
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </nuxt-link>
-        <button class="inline md:hidden mr-2">
+
+        <button
+          class="inline md:hidden mr-2"
+          @click="isSideBarActive = !isSideBarActive"
+        >
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
           </svg>
         </button>
       </div>
     </div>
+
+    <SideBar :show-side-bar="isSideBarActive" />
   </header>
 </template>
 
@@ -93,7 +99,8 @@
 export default {
   data () {
     return {
-      isScroll: false
+      isScroll: false,
+      isSideBarActive: false
     }
   },
   mounted () {
