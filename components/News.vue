@@ -2,14 +2,14 @@
   <section class="text-gray-600 body-font">
     <div class="md:px-8 px-2 mx-auto container">
       <h3 class="text-3xl text-center mb-3">
-        Informasi
+        Informasi {{ limit }}
       </h3>
       <hr class="border-2 bg-black w-40 m-auto">
       <div class="flex flex-wrap mt-4 justify-center">
         <div
           v-for="berita of beritas"
           :key="berita.id"
-          class="sm:p-0 md:w-1/3 mb-2"
+          class="sm:p-0 md:w-1/3 mb-5"
         >
           <div
             class="
@@ -115,10 +115,8 @@ export default {
     }
   },
   async mounted () {
-    const url = 'https://api.muhammadiyah-bna.org/informasi'
-    if (this.limit === true) {
-      url.concat('?page=1&limit=3')
-    }
+    let url = 'https://api.muhammadiyah-bna.org/informasi'
+    url = this.limit ? url.concat('?page=1&limit=3') : url
     await axios
       .get(url, {
         headers: {

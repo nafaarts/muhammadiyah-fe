@@ -14,6 +14,7 @@
             class="img-galeri shadow-md md:border-3 border-1 border-white"
             :src="img.gambar.medium"
             :alt="img.deskripsi"
+            @click="showImage"
           >
         </transition-group>
       </div>
@@ -61,6 +62,12 @@ export default {
       .catch((err) => {
         alert(err)
       })
+  },
+  methods: {
+    showImage (el) {
+      console.log('src')
+      // console.log(el.currentTarget.getAttribute('src'))
+    }
   }
 }
 </script>

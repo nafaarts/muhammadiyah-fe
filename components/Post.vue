@@ -13,7 +13,7 @@
             <h3 class="text-3xl font-bold pb-4">
               {{ judul }}
             </h3>
-            <p class="text-sm">
+            <p class="text-sm text-gray-500">
               Published on {{ published }}
             </p>
             <hr class="my-4">
@@ -27,7 +27,22 @@
       <!-- Sidebar Section -->
       <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
         <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-          <h5>judul</h5>
+          <h5>Informasi Terbaru</h5>
+          <hr class="my-3">
+          <nuxt-link v-for="(related, i) of latest" :key="i" :to="related.slug">
+            <div class="related-items flex mb-3 shadow-sm">
+              <div
+                class="w-1/3 font-bold related-image rounded-md"
+                :style="`background-image: url(${related.gambar.thumbnail})`"
+              />
+              <div class="w-2/3 px-2">
+                <h4>
+                  {{ related.judul }}
+                </h4>
+                <small class="text-gray-500">{{ related.created_at }}</small>
+              </div>
+            </div>
+          </nuxt-link>
         </div>
       </aside>
     </div>
@@ -45,7 +60,8 @@ export default {
       kategori: null,
       published: null,
       isi: null,
-      gambar: null
+      gambar: null,
+      latest: null
     }
   },
   mounted () {
@@ -59,6 +75,7 @@ export default {
       })
       .then((res) => {
         this.berita = res.data.data
+        this.latest = res.data.data.latest
         this.judul = this.berita.judul
         this.kategori = this.berita.kategori.kategori
         this.isi = this.berita.isi
@@ -76,9 +93,14 @@ export default {
 .post-image {
   height: 400px;
   width: 100%;
-  background-color: lightgray;
   background-size: cover;
   background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.related-image {
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 </style>

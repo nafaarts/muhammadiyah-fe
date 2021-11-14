@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-700 body-font hero-background py-10 md:h-screen">
+  <section class="text-gray-700 body-font hero-background md:h-screen">
     <div class="lg:mx-8 sm:mx-2">
       <div
         class="
@@ -28,6 +28,8 @@
             text-center
             lg:ml-14
             sm:ml-0
+            mt-7
+            md:mt-0
           "
         >
           <h4 class="lg:text-5xl text-3xl">
