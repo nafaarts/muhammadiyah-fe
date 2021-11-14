@@ -1,9 +1,9 @@
 <template>
   <main>
-    <Navbar />
+    <Navbar :hide-sized-box="true" />
     <Hero />
     <About />
-    <News :limit="true" />
+    <News :limit="true" class="py-10" />
     <CTAPanti />
     <Staff />
     <Maps />

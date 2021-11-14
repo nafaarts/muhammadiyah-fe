@@ -1,10 +1,10 @@
 <template>
   <section class="text-gray-600 body-font">
-    <div class="md:px-8 px-2 md:py-16 py-20 mx-auto container">
+    <div class="md:px-8 px-2 mx-auto container">
       <h3 class="text-3xl text-center mb-3">
-        Latest News
+        Informasi
       </h3>
-      <hr class="border border-2 bg-black w-40 m-auto">
+      <hr class="border-2 bg-black w-40 m-auto">
       <div class="flex flex-wrap mt-4 justify-center">
         <div
           v-for="berita of beritas"
@@ -105,7 +105,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'Berita',
+  name: 'Informasi',
   props: {
     limit: Boolean
   },

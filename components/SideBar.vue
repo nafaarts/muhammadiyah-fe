@@ -34,7 +34,6 @@
     <nuxt-link
       to="/donasi"
       class="
-        inline-flex
         items-center
         bg-green-700
         border-0

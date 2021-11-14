@@ -1,10 +1,10 @@
 <template>
   <section class="text-gray-600 body-font">
-    <div class="md:px-8 px-2 md:py-16 py-20 mx-auto">
+    <div class="md:px-8 px-2 mx-auto">
       <h3 class="text-3xl text-center mb-3">
         Galeri
       </h3>
-      <hr class="border border-2 bg-black w-40 m-auto mb-8">
+      <hr class="border-2 bg-black w-40 m-auto mb-8">
       <div class="container">
         <transition-group tag="div" @before-enter="beforeEnter" @enter="enter">
           <img
@@ -23,6 +23,7 @@
 
 <script>
 import axios from 'axios'
+// eslint-disable-next-line import/no-named-as-default
 import gsap from 'gsap'
 export default {
   data () {

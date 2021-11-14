@@ -4,7 +4,7 @@
       <h1 class="text-3xl mb-2 font-medium">
         PANTI ASUHAN
       </h1>
-      <h1 class="text-2xl mb-4">
+      <h1 class="md:text-2xl text-sm mb-4">
         YAYASAN KESEJAHTERAAN SOSIAL MUHAMMADIYAH
       </h1>
       <p class="mb-4 text-base">

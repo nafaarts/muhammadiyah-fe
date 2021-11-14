@@ -8,7 +8,7 @@
           flex
           px-5
           md:py-24
-          py-14
+          py-16
           md:flex-row
           flex-col
           items-center
@@ -30,13 +30,13 @@
             sm:ml-0
           "
         >
-          <h4 class="lg:text-5xl text-2xl">
+          <h4 class="lg:text-5xl text-3xl">
             PIMPINAN DAERAH
           </h4>
           <h1
             class="
               title-font
-              text-3xl
+              text-4xl
               lg:text-6xl
               font-medium
               focus-muhammadiyah
@@ -44,15 +44,15 @@
           >
             MUHAMMADIYAH
           </h1>
-          <h4 class="sm:text-5xl text-xl mb-4">
+          <h4 class="sm:text-5xl text-2xl mb-4">
             KOTA BANDA ACEH
           </h4>
-          <hr class="border border-2 bg-black w-40 mb-4">
+          <hr class="border-2 bg-black w-40 mb-4">
           <small
             class="leading-relaxed"
           >Dikelola oleh Sekretariat Pimpinan Daerah</small>
         </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mt-5 md:mt-0">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mt-7 md:mt-0">
           <img
             class="object-cover object-center rounded"
             alt="hero"
