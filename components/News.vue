@@ -2,7 +2,7 @@
   <section class="text-gray-600 body-font">
     <div class="md:px-8 px-2 mx-auto container">
       <h3 class="text-3xl text-center mb-3">
-        Informasi {{ limit }}
+        Informasi
       </h3>
       <hr class="border-2 bg-black w-40 m-auto">
       <div class="flex flex-wrap mt-4 justify-center">

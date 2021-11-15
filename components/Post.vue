@@ -33,7 +33,7 @@
             <div class="related-items flex mb-3 shadow-sm">
               <div
                 class="w-1/3 font-bold related-image rounded-md"
-                :style="`background-image: url(${related.gambar.thumbnail})`"
+                :style="`background-image: url(${related.gambar.medium})`"
               />
               <div class="w-2/3 px-2">
                 <h4>
