@@ -2,6 +2,7 @@
   <main>
     <Navbar />
     <Galeri />
+    <WhatsApp />
     <Footer />
   </main>
 </template>

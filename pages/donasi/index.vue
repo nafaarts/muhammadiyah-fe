@@ -2,6 +2,7 @@
   <main>
     <Navbar />
     <Donasi />
+    <WhatsApp />
     <Footer />
   </main>
 </template>

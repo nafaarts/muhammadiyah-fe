@@ -2,6 +2,7 @@
   <main>
     <Navbar />
     <News :limit="false" />
+    <WhatsApp />
     <Footer />
   </main>
 </template>

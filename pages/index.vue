@@ -7,6 +7,7 @@
     <CTAPanti />
     <Staff />
     <Maps />
+    <WhatsApp />
     <Footer />
   </main>
 </template>
