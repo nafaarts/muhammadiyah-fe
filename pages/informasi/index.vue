@@ -1,7 +1,9 @@
 <template>
   <main>
     <Navbar />
-    <News :limit="false" />
+    <div class="min-h-screen">
+      <News :limit="false" />
+    </div>
     <WhatsApp />
     <Footer />
   </main>

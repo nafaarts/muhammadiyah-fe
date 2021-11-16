@@ -1,7 +1,9 @@
 <template>
   <main>
     <Navbar />
-    <Donasi />
+    <div class="min-h-screen">
+      <Donasi />
+    </div>
     <WhatsApp />
     <Footer />
   </main>

@@ -75,7 +75,6 @@ export default {
 <style scoped>
 .container {
   column-count: 4;
-  min-height: 100vh;
 }
 
 .img-galeri {

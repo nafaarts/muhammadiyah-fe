@@ -5,7 +5,10 @@
       <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         <article class="flex flex-col shadow my-4">
           <!-- Article Image -->
-          <div class="post-image" :style="`background-image:url(${gambar})`" />
+          <div
+            class="post-image min-w-full"
+            :style="`background-image:url(${gambar})`"
+          />
           <div class="bg-white flex flex-col justify-start p-6">
             <p class="text-blue-700 text-sm font-bold uppercase pb-4">
               {{ kategori }}
