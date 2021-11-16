@@ -1,5 +1,7 @@
 <template>
   <a
+    href="https://wa.me/685244118541?text=Assalamualaikum,%20Saya%20mau%20bertanya."
+    target="_blank"
     class="
       whatsapp-popup
       hover:bg-green-800
