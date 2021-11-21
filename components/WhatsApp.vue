@@ -11,7 +11,7 @@
       fixed
       bottom-5
       right-5
-      md:bottom-14 md:right-14
+      md:bottom-7 md:right-7
       shadow-lg
     "
   >
