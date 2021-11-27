@@ -17,12 +17,10 @@
               {{ judul }}
             </h3>
             <p class="text-sm text-gray-500">
-              Published on {{ published }}
+              Published {{ published }}
             </p>
             <hr class="my-4">
-            <div class="pb-3">
-              {{ isi }}
-            </div>
+            <div class="pb-3" v-html="isi" />
           </div>
         </article>
       </section>
@@ -39,10 +37,12 @@
                 :style="`background-image: url(${related.gambar.medium})`"
               />
               <div class="w-2/3 px-2">
-                <h4>
+                <h4 class="line-clamp-2">
                   {{ related.judul }}
                 </h4>
-                <small class="text-gray-500">{{ related.created_at }}</small>
+                <small
+                  class="text-gray-500"
+                >Published {{ related.created_at }}</small>
               </div>
             </div>
           </nuxt-link>
@@ -68,8 +68,7 @@ export default {
     }
   },
   mounted () {
-    const url =
-      'https://api.muhammadiyah-bna.org/informasi/' + this.$route.params.id
+    const url = process.env.API_URL + 'informasi/' + this.$route.params.id
     axios
       .get(url, {
         headers: {

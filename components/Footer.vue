@@ -1,26 +1,54 @@
 <template>
   <footer class="text-gray-600 bg-gray-50 body-font px-2 md:px-8">
-    <div
-      class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
-    >
-      <p
-        class="
-          text-sm text-gray-500
-          md:text-left
-          text-center
-          sm:py-2 sm:mt-0
-          mt-4
-        "
-      >
+    <div class="container px-5 py-8 mx-auto flex items-center justify-center">
+      <p class="text-sm text-gray-500 text-center sm:py-2 sm:mt-0 flex mt-4">
         © 2021 PDM Muhammadiyah Banda Aceh - Powered by
         <a
           href="https://n.nafaarts.com"
-          class="text-green-700"
+          class="text-black flex items-center"
           rel="noopener noreferrer"
           target="_blank"
-        >Nafaarts</a>
+        >
+          <i class="mx-1">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 300 300"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="300" height="300" fill="#F7941E" />
+              <rect
+                x="129"
+                y="69"
+                width="40"
+                height="162"
+                rx="20"
+                fill="white"
+              />
+              <rect
+                x="226.768"
+                y="115.232"
+                width="31.4212"
+                height="127.909"
+                rx="2"
+                transform="rotate(44.632 226.768 115.232)"
+                fill="white"
+              />
+              <rect
+                x="134.179"
+                y="76.3133"
+                width="32.0426"
+                height="118.389"
+                rx="2"
+                transform="rotate(44.632 134.179 76.3133)"
+                fill="white"
+              />
+            </svg>
+          </i>
+          <strong>Nafaarts</strong></a>
       </p>
-      <span
+      <!-- <span
         class="
           inline-flex
           sm:ml-auto sm:mt-0
@@ -90,7 +118,7 @@
             <circle cx="4" cy="4" r="2" stroke="none" />
           </svg>
         </a>
-      </span>
+      </span> -->
     </div>
   </footer>
 </template>

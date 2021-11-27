@@ -12,13 +12,7 @@
           class="sm:p-0 md:w-1/3 mb-5"
         >
           <div
-            class="
-              m-2
-              h-full
-              border-2 border-gray-200 border-opacity-60
-              rounded-lg
-              overflow-hidden
-            "
+            class="m-2 border-2 border-gray-200 border-opacity-60 rounded-lg"
           >
             <nuxt-link :to="'informasi/' + berita.slug">
               <img
@@ -41,7 +35,16 @@
               >
                 {{ berita.kategori.kategori }}
               </h2>
-              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+              <h1
+                class="
+                  title-font
+                  text-lg
+                  font-medium
+                  text-gray-900
+                  mb-3
+                  line-clamp-3
+                "
+              >
                 {{ berita.judul }}
               </h1>
               <p class="leading-relaxed mb-3">
@@ -115,7 +118,7 @@ export default {
     }
   },
   async mounted () {
-    let url = 'https://api.muhammadiyah-bna.org/informasi'
+    let url = process.env.API_URL + 'informasi'
     url = this.limit ? url.concat('?page=1&limit=3') : url
     await axios
       .get(url, {

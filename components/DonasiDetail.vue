@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-700 body-font overflow-hidden ">
+  <section class="text-gray-700 body-font overflow-hidden">
     <div class="container px-5 mx-auto">
       <div class="lg:w-4/5 mx-auto flex flex-wrap">
         <img
@@ -38,7 +38,7 @@
                     rounded-md
                     text-white
                   "
-                  :class="range == 100 ? 'bg-green-400' : 'bg-yellow-400'"
+                  :class="range >= 100 ? 'bg-green-400' : 'bg-yellow-400'"
                 >
                   Task in progress
                 </span>
@@ -46,15 +46,15 @@
               <div class="text-right">
                 <span
                   class="text-xs font-semibold inline-bloc"
-                  :class="range == 100 ? 'text-green-700' : 'text-yellow-700'"
+                  :class="range >= 100 ? 'text-green-700' : 'text-yellow-700'"
                 >
-                  {{ range }}%
+                  {{ range.toFixed(1) }}%
                 </span>
               </div>
             </div>
             <div
               class="overflow-hidden h-2 mb-4 text-xs flex rounded"
-              :class="range == 100 ? 'bg-green-200' : 'bg-yellow-200'"
+              :class="range >= 100 ? 'bg-green-200' : 'bg-yellow-200'"
             >
               <div
                 :style="`width: ${range}%`"
@@ -66,7 +66,7 @@
                   text-white
                   justify-center
                 "
-                :class="range == 100 ? 'bg-green-700' : 'bg-yellow-700'"
+                :class="range >= 100 ? 'bg-green-700' : 'bg-yellow-700'"
               />
             </div>
           </div>
@@ -166,8 +166,9 @@
           </div>
           <p class="leading-relaxed mb-4">
             Donasi kamu akan berkontribusi
-            <strong> {{ (jumlahDonasi / donasi.target) * 100 }}%</strong> dari
-            total kebutuhan.
+            <strong>
+              {{ ((jumlahDonasi / donasi.target) * 100).toFixed(1) }}%</strong>
+            dari total kebutuhan.
           </p>
           <hr class="mb-4">
           <div class="flex">
@@ -210,8 +211,7 @@ export default {
   },
   async mounted () {
     // alert(this.$route.params.id)
-    const url =
-      'https://api.muhammadiyah-bna.org/donasi/' + this.$route.params.id
+    const url = process.env.API_URL + 'donasi/' + this.$route.params.id
     await axios
       .get(url, {
         headers: {

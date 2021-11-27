@@ -49,7 +49,7 @@ export default {
     }
   },
   async mounted () {
-    const url = 'https://api.muhammadiyah-bna.org/gallery'
+    const url = process.env.API_URL + 'gallery'
     await axios
       .get(url, {
         headers: {

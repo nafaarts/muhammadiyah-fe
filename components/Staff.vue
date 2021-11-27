@@ -65,7 +65,7 @@ export default {
     }
   },
   async mounted () {
-    const url = 'https://api.muhammadiyah-bna.org/staff'
+    const url = process.env.API_URL + 'staff'
     await axios
       .get(url, {
         headers: {

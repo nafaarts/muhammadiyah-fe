@@ -30,7 +30,7 @@ export default {
     }
   },
   async mounted () {
-    const url = 'https://api.muhammadiyah-bna.org/donasi'
+    const url = process.env.API_URL + 'donasi'
     await axios
       .get(url, {
         headers: {
