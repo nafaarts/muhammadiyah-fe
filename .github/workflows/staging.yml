@@ -20,7 +20,7 @@ jobs:
     - name: Install Dependencies
       run: |
         echo SECRET_KEY=${{ secrets.SECRET_KEY }} > .env
-        echo API_URL=${{ secrets.API_URL }} > .env
+        echo API_URL=${{ secrets.API_URL }} >> .env
         npm install
         npm run build
         npm run generate
