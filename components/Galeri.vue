@@ -85,6 +85,7 @@ export default {
   padding: 10px;
   background: #fff;
   box-sizing: border-box;
+  break-inside: avoid-column;
 }
 
 @media screen and (max-width: 1024px) {
